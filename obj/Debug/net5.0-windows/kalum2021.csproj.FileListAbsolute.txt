@@ -24,3 +24,5 @@ C:\Users\Hector Lopez\Documents\Kinal2021\NET\prodv1\kalum2021\obj\Debug\net5.0-
 C:\Users\Hector Lopez\Documents\Kinal2021\NET\prodv1\kalum2021\obj\Debug\net5.0-windows\Views\UsuariosView.baml
 C:\Users\Hector Lopez\Documents\Kinal2021\NET\prodv1\kalum2021\obj\Debug\net5.0-windows\Views\RoleView.g.cs
 C:\Users\Hector Lopez\Documents\Kinal2021\NET\prodv1\kalum2021\obj\Debug\net5.0-windows\Views\RoleView.baml
+C:\Users\Hector Lopez\Documents\Kinal2021\NET\prodv1\kalum2021\obj\Debug\net5.0-windows\Views\UsuarioView.g.cs
+C:\Users\Hector Lopez\Documents\Kinal2021\NET\prodv1\kalum2021\obj\Debug\net5.0-windows\Views\UsuarioView.baml

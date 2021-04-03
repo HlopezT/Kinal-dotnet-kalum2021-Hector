@@ -1,28 +1,39 @@
-using System.Collections.ObjectModel; //
-using System.ComponentModel; //
-using kalum2021.Models; //
+using System;
+using System.ComponentModel;
+using System.Windows.Input;
+using kalum2021.Models;
 
 namespace kalum2021.ModelView
 {
-    public class UsuarioViewModel:INotifyPropertyChanged
+    public class UsuarioViewModel : INotifyPropertyChanged, ICommand
     {
-        public ObservableCollection<Usuarios> usuarios{get;set;}
-        public UsuarioViewModel()
+        public UsuarioViewModel Instancia{get;set;}
+        public UsuariosViewModel UsuariosViewModel {get;set;}
+        public string Apellidos{get;set;}
+        public string Nombres{get;set;}
+        public string Email{get;set;}
+        public string Username{get;set;}
+        public string Password{get;set;}
+        public event PropertyChangedEventHandler PropertyChanged;
+        public event EventHandler CanExecuteChanged;
+
+        public UsuarioViewModel(UsuariosViewModel UsuariosViewModel)
         {
-            this.usuarios=new ObservableCollection<Usuarios>(); 
-            this.usuarios.Add(new Usuarios(1,"hlopez",true,"Hector Leonel","Lopez Temaj","leohec@hotmail.com")); 
-            this.usuarios.Add(new Usuarios(2,"gsunu",true,"Gloria","Sunu","gsunu@gmail.com"));  
+            this.Instancia=this; 
+            this.UsuariosViewModel=UsuariosViewModel; 
+        }
+        public bool CanExecute(object parametros)
+        {
+            return true; 
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void NotificarCambio(string propiedad)
+        public void Execute(object parametro)
         {
-            if(PropertyChanged!=null)
+            if(parametro.Equals("Guardar"))
             {
-                PropertyChanged(this,new PropertyChangedEventArgs(propiedad));
+                Usuarios nuevo=new Usuarios(100,Username,true,Nombres,Apellidos,Email); 
+                this.UsuariosViewModel.AgregarElemento(nuevo); 
             }
         }
-        
     }
 }
