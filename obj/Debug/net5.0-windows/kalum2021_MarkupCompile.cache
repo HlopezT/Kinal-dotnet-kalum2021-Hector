@@ -1,20 +1,20 @@
 ﻿kalum2021
-
+1.0.0.0
 
 winexe
 C#
 .cs
-C:\Users\Hector Lopez\Documents\Kinal2021\NET\prodv1\kalum2021\obj\Debug\net5.0-windows\
+c:\Users\Hector Lopez\Documents\Kinal2021\NET\prodv1\kalum2021\obj\Debug\net5.0-windows\
 kalum2021
 none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
-C:\Users\Hector Lopez\Documents\Kinal2021\NET\prodv1\kalum2021\App.xaml
-4-425713788
+c:\Users\Hector Lopez\Documents\Kinal2021\NET\prodv1\kalum2021\App.xaml
+52072315701
 
-14-1671671339
-193406607252
-MainWindow.xaml;Views\RoleView.xaml;Views\UsuariosView.xaml;Views\UsuarioView.xaml;
+19564820455
+1961637235482
+MainWindow.xaml;Views\RolesView.xaml;Views\RoleView.xaml;Views\UsuariosView.xaml;Views\UsuarioView.xaml;
 
 False
 

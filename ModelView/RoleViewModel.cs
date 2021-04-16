@@ -1,23 +1,54 @@
-using System.Collections.ObjectModel; //
-using System.ComponentModel; //
-using kalum2021.Models; //
+using System;
+using System.ComponentModel;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
+using kalum2021.Models;
+
 namespace kalum2021.ModelView
 {
-    public class RoleViewModel:INotifyPropertyChanged
+    public class RoleViewModel : INotifyPropertyChanged, ICommand
     {
-         public ObservableCollection<Role> roles{get;set;}
-        public RoleViewModel()
-        {
-            this.roles=new ObservableCollection<Role>(); 
-            this.roles.Add(new Role(1,"Administrador")); 
-            this.roles.Add(new Role(2,"Operador")); 
-        }
+        public RoleViewModel Instancia{get;set;}
+        public RolesViewModel RolesViewModel{get;set;}
+        public string Nombre{get;set;}
+        public Role Role{get;set;} //referencia
         public event PropertyChangedEventHandler PropertyChanged;
-        public void NotificarCambio(string propiedad)
+        public event EventHandler CanExecuteChanged;
+
+        public RoleViewModel(RolesViewModel RolesViewModel)
         {
-            if(PropertyChanged!=null)
+            this.Instancia=this; 
+            this.RolesViewModel=RolesViewModel; 
+            if(this.RolesViewModel.Seleccionado!=null)
             {
-                PropertyChanged(this,new PropertyChangedEventArgs(propiedad));
+                this.Role=new Role(); 
+                this.Role.Id=this.RolesViewModel.Seleccionado.Id; 
+                this.Nombre=this.RolesViewModel.Seleccionado.Nombre; 
+            }
+        }
+        public bool CanExecute(object parametro)
+        {
+            return true; 
+        }
+
+        public void Execute(object parametro)
+        {
+            if(parametro is Window)
+            {
+                if(this.RolesViewModel.Seleccionado==null)
+                {
+                    Role nuevo=new Role(200,Nombre);
+                    this.RolesViewModel.AgregarElemento(nuevo); 
+                }
+                else
+                {
+                    Role.Nombre=this.Nombre; 
+                    int posicion=this.RolesViewModel.roles.IndexOf(this.RolesViewModel.Seleccionado); 
+                    this.RolesViewModel.roles.RemoveAt(posicion); 
+                    this.RolesViewModel.roles.Insert(posicion,Role); 
+                }
+                ((Window)parametro).Close(); 
             }
         }
     }

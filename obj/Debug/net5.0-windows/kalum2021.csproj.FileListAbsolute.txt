@@ -22,7 +22,15 @@ C:\Users\Hector Lopez\Documents\Kinal2021\NET\prodv1\kalum2021\obj\Debug\net5.0-
 C:\Users\Hector Lopez\Documents\Kinal2021\NET\prodv1\kalum2021\obj\Debug\net5.0-windows\kalum2021.genruntimeconfig.cache
 C:\Users\Hector Lopez\Documents\Kinal2021\NET\prodv1\kalum2021\obj\Debug\net5.0-windows\Views\UsuariosView.g.cs
 C:\Users\Hector Lopez\Documents\Kinal2021\NET\prodv1\kalum2021\obj\Debug\net5.0-windows\Views\UsuariosView.baml
-C:\Users\Hector Lopez\Documents\Kinal2021\NET\prodv1\kalum2021\obj\Debug\net5.0-windows\Views\RoleView.g.cs
-C:\Users\Hector Lopez\Documents\Kinal2021\NET\prodv1\kalum2021\obj\Debug\net5.0-windows\Views\RoleView.baml
 C:\Users\Hector Lopez\Documents\Kinal2021\NET\prodv1\kalum2021\obj\Debug\net5.0-windows\Views\UsuarioView.g.cs
 C:\Users\Hector Lopez\Documents\Kinal2021\NET\prodv1\kalum2021\obj\Debug\net5.0-windows\Views\UsuarioView.baml
+C:\Users\Hector Lopez\Documents\Kinal2021\NET\prodv1\kalum2021\obj\Debug\net5.0-windows\Views\RolesView.g.cs
+C:\Users\Hector Lopez\Documents\Kinal2021\NET\prodv1\kalum2021\obj\Debug\net5.0-windows\Views\RolesView.baml
+C:\Users\Hector Lopez\Documents\Kinal2021\NET\prodv1\kalum2021\obj\Debug\net5.0-windows\Views\RoleView.g.cs
+C:\Users\Hector Lopez\Documents\Kinal2021\NET\prodv1\kalum2021\obj\Debug\net5.0-windows\Views\RoleView.baml
+C:\Users\Hector Lopez\Documents\Kinal2021\NET\prodv1\kalum2021\bin\Debug\net5.0-windows\ControlzEx.dll
+C:\Users\Hector Lopez\Documents\Kinal2021\NET\prodv1\kalum2021\bin\Debug\net5.0-windows\MahApps.Metro.dll
+C:\Users\Hector Lopez\Documents\Kinal2021\NET\prodv1\kalum2021\bin\Debug\net5.0-windows\Microsoft.Xaml.Behaviors.dll
+C:\Users\Hector Lopez\Documents\Kinal2021\NET\prodv1\kalum2021\bin\Debug\net5.0-windows\de\MahApps.Metro.resources.dll
+C:\Users\Hector Lopez\Documents\Kinal2021\NET\prodv1\kalum2021\obj\Debug\net5.0-windows\App.baml
+C:\Users\Hector Lopez\Documents\Kinal2021\NET\prodv1\kalum2021\obj\Debug\net5.0-windows\kalum2021.csproj.CopyComplete

@@ -1,15 +1,16 @@
+using System.Windows;
 using kalum2021.ModelView; 
-using System.Windows; 
+using MahApps.Metro.Controls;
+
 namespace kalum2021.Views
 {
-    public partial class RoleView:Window
+    public partial class RoleView : MetroWindow
     {
-        public RoleView()
+        public RoleView(RolesViewModel RoleViewModel)
         {
             InitializeComponent();
-            RoleViewModel ModeloDatos=new RoleViewModel(); 
-            this.DataContext=ModeloDatos; 
+            RoleViewModel Modelo=new RoleViewModel(RoleViewModel); 
+            this.DataContext=Modelo; 
         }
-        
     }
 }

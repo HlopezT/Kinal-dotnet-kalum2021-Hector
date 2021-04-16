@@ -5,63 +5,84 @@ using System.Windows.Input;//
 using kalum2021.Models; //
 using System.Windows;//
 using kalum2021.Views;//
+using MahApps.Metro.Controls.Dialogs;
+
 
 namespace kalum2021.ModelView
 {
-    public class UsuariosViewModel:INotifyPropertyChanged, ICommand
+    public class UsuariosViewModel : INotifyPropertyChanged, ICommand
     {
-        public ObservableCollection<Usuarios> usuarios{get;set;}
-        public UsuariosViewModel Instancia{get;set;}
-        public Usuarios Seleccionado{get;set;}
-        public UsuariosViewModel()
+        public ObservableCollection<Usuarios> usuarios { get; set; }
+        public UsuariosViewModel Instancia { get; set; }
+        public Usuarios Seleccionado { get; set; }
+        private IDialogCoordinator dialogCoordinator;
+        public UsuariosViewModel(IDialogCoordinator instance)
         {
-            this.Instancia=this; 
-            this.usuarios=new ObservableCollection<Usuarios>(); 
-            this.usuarios.Add(new Usuarios(1,"hlopez",true,"Hector Leonel","Lopez Temaj","leohec@hotmail.com")); 
-            this.usuarios.Add(new Usuarios(2,"gsunu",true,"Gloria","Sunu","gsunu@gmail.com"));  
+            this.Instancia = this;
+            this.dialogCoordinator = instance;
+            this.usuarios = new ObservableCollection<Usuarios>();
+            this.usuarios.Add(new Usuarios(1, "hlopez", true, "Hector Leonel", "Lopez Temaj", "leohec@hotmail.com"));
+            this.usuarios.Add(new Usuarios(2, "gsunu", true, "Gloria", "Sunu", "gsunu@gmail.com"));
         }
 
         //inicio INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
         public void NotificarCambio(string propiedad)
         {
-            if(PropertyChanged!=null)
+            if (PropertyChanged != null)
             {
-                PropertyChanged(this,new PropertyChangedEventArgs(propiedad));
+                PropertyChanged(this, new PropertyChangedEventArgs(propiedad));
             }
         }
         //fin INotifyPropertyChanged
         public void AgregarElemento(Usuarios nuevo)
         {
-            this.usuarios.Add(nuevo); 
+            this.usuarios.Add(nuevo);
         }
 
         //inicio Icommand
         public event EventHandler CanExecuteChanged;
-
         public bool CanExecute(object parametro)
         {
-            return true; 
+            return true;
         }
 
-        public void Execute(object parametro)
+        public async void Execute(object parametro)
         {
-            if(parametro.Equals("Nuevo"))
+            if (parametro.Equals("Nuevo"))
             {
-                UsuarioView nuevoUsuario=new UsuarioView(Instancia); 
-                nuevoUsuario.Show(); 
-                /*Usuarios elemento=new Usuarios(100,"bcastillo",true,"Byron","Castillo","bcastillo@gmail.com"); 
-                AgregarElemento(elemento); */ 
+                this.Seleccionado = null;
+                UsuarioView nuevoUsuario = new UsuarioView(Instancia);
+                nuevoUsuario.Show();
             }
-            else if(parametro.Equals("Eliminar"))
+            else if (parametro.Equals("Eliminar"))
             {
-                if(this.Seleccionado==null)
+                if (this.Seleccionado == null)
                 {
-                    MessageBox.Show("Favor de seleccionar un elemento"); 
+                    await this.dialogCoordinator.ShowMessageAsync(this, "Usuarios", "Debe seleccionar un elemento",
+                    MessageDialogStyle.Affirmative);
                 }
                 else
                 {
-                    this.usuarios.Remove(Seleccionado); 
+                    MessageDialogResult respuesta = await this.dialogCoordinator.ShowMessageAsync(this, "Eliminar usuario",
+                    "Esta segurio de eliminar el registro", MessageDialogStyle.AffirmativeAndNegative);
+                    if (respuesta == MessageDialogResult.Affirmative)
+                    {
+                        this.usuarios.Remove(Seleccionado);
+                    }
+                }
+            }
+            else if (parametro.Equals("Modificar"))
+            {
+                if (this.Seleccionado == null)
+                {
+                     await this.dialogCoordinator.ShowMessageAsync(this, "Usuarios", "Debe seleccionar un elemento",
+                    MessageDialogStyle.Affirmative);
+                }
+                else
+                {
+                    UsuarioView modificarUsuario = new UsuarioView(Instancia);
+                    modificarUsuario.ShowDialog();
                 }
             }
         }
